@@ -1,0 +1,22 @@
+#process_profile { padding:20px;}
+#read_profile .icon_doc { background:url(../images/docx.png) no-repeat; padding-left:20px;}
+
+/*ho so moi nhan */
+/*
+.td_group{
+	display:none;
+}*/
+.table_hs{
+	margin-top:20px;
+}
+
+ /* muc xu ly ho so - ho so qua han (nav) */
+.nav-tabs>li>a.active{
+	border-top: 3px solid #F3565D !important;
+    border-radius: 0;
+	color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}

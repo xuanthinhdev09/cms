@@ -1,0 +1,43 @@
+ {{extend 'site/ghephang/default/layouts.html'}}
+
+{{block "content"}}
+ 
+{{page_title ="Tra Vận Đơn"}}
+
+{{include 'site/ghephang/default/component/page-title.html'}}
+
+    <!-- Start Inner Blog Details Area -->
+    <section class="blog-details-area ptb-50">
+        <div class="container">
+            <div class="col-md-8 col-md-offset-2  page_search_order">
+            
+                <div class="row form_search_order">
+                    <div class="box ">
+                        <div class="box-body">
+                            <div class="input-group">
+                                {{ajax = "ajax('%s',['fname'],'result_search_order')"%URL(c='plugin_app',f='get_orders') }}
+                                <input class="form-control txt_search_order" name="fname", value="{{=request.vars.fname if request.vars.fname else ''}}" placeholder="Nhập mã vận chuyển hoặc mã đơn hàng" type="text">
+                                {{=A('Tra Cứu',I(_class='bx bx-log-in'),_class="btn btn_search_order ", _onclick = ajax)}}
+                            </div>
+                            <i class='luu_y'> Nhập tối đa 10 vận đơn, mỗi mã cách nhau dấu phẩy VD: 100001, 100002 <br/> Mọi thắc mắc vui lòng liên hệ hotline: 1900.888.678 hoặc Email: info@ghephang.com </i>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="result_search_order">   
+
+                </div>
+                <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+            </div>
+        </div>
+    </section>
+    <!-- End Inner Blog Details Area -->
+
+
+{{end}}

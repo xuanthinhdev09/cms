@@ -1,0 +1,11 @@
+.app-form{
+    display: flex; justify-content: center; align-items: center;
+}
+.app-form-1{
+    justify-content: center;
+    align-items: center;
+    height:300px;
+    width: 600px;
+    background-color: rgba(241, 243, 244, 0.8);
+    margin:20px;
+    flex-shrink: 0;}

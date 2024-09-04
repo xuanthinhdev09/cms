@@ -1,0 +1,17 @@
+.proc-body{
+	margin: 20px;
+    padding: 10px;
+    background: #e2e2e2;
+    border-radius: 5px;
+}
+.proc-title{
+	background: #83a4b3;
+    padding: 5px;
+	margin-bottom:5px;
+    border-radius: 5px;
+    color: #fff;
+}
+.proc-control{
+	padding: 5px;
+    background: #c5b9b9;
+}

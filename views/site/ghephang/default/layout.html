@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+
+{{static_default='site/ghephang/template/default'}}
+{{static_view='site/ghephang/default'}}
+{{block "config_page"}} {{end}}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{=cms.metadc()}}
+    <!-- Bootstrap Min CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/bootstrap.min.css">
+    <!-- Owl Theme Default Min CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/owl.theme.default.min.css">
+    <!-- Owl Carousel Min CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/owl.carousel.min.css">
+    <!-- Owl Magnific Min CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/magnific-popup.min.css">
+    <!-- Animate Min CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/animate.min.css">
+    <!-- Boxicons Min CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/boxicons.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/flaticon.css">
+    <!-- Meanmenu Min CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/meanmenu.min.css">
+    <!-- Nice Select Min CSS -->
+    <!-- <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/nice-select.min.css"> -->
+    <!-- Odometer Min CSS-->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/odometer.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/style.css">
+    <!-- Dark CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/dark.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{=URL('static','%s/css')%(static_default)}}/responsive.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    {{block "block_css"}}
+    {{end}}
+    {{include 'web2py_ajax.html'}}
+    <!-- Favicon -->
+    <!-- Title -->
+    <style>
+
+body {
+    font-family: 'Cabin', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+.navbar-nav .nav-link.active {
+
+    color: #fa4612 !important;
+}
+
+.app-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; /* Hiển thị ngang mặc định */
+}
+
+.app-form-1 {
+    flex-shrink: 0;
+    margin: 20px;
+    padding: 15px 0;
+    background-color: rgba(241, 243, 244, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 400px; /* Giá trị mặc định */
+    border-radius: 30px;
+}
+.app-form-mobile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 20px;
+    background-color: rgba(241, 243, 244, 0.8);
+    box-sizing: border-box;
+    max-width: 500px; /* Giá trị mặc định */
+    border-radius: 30px;
+}
+/* Các kích thước khác nhau */
+@media (min-width: 601px) {
+    .app-form-1 {
+        width: 600px; /* Khi màn hình rộng hơn 600px */
+    }
+}
+
+@media (max-width: 1245px) {
+    .app-form-1 {
+        width: 500px; /* Khi màn hình nhỏ hơn 1245px */
+    }
+}
+
+@media (max-width: 960px) {
+    .app-form-1 {
+        width: 400px; /* Khi màn hình nhỏ hơn 960px */
+    }
+}
+
+@media (max-width: 843px) {
+    .app-form-1 {
+        width: 350px; /* Khi màn hình nhỏ hơn 843px */
+    }
+}
+
+.icon-button-app {
+    display: flex; /* Hiển thị các liên kết tải ứng dụng */
+    gap: 10px; /* Khoảng cách giữa các liên kết */
+    align-items: center; /* Căn giữa các liên kết dọc theo trục chính */
+}
+
+.app-download-btn {
+    display: none; /* Ẩn nút tải ứng dụng theo mặc định */
+}
+.app{
+    display: none;
+}
+/* Khi màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+    .app-form {
+        display:none;
+        flex-direction: column; /* Hiển thị các phần tử theo chiều dọc */
+    }
+    .app{
+        display: block;
+    }
+    .app-form-1 {
+        width: 100%;
+        max-width: none;
+    }
+
+    .icon-button-app1{
+        display: none; /* Ẩn các liên kết tải ứng dụng trên màn hình nhỏ */
+    }
+
+    .app-download-btn {
+        display: block; /* Hiển thị nút tải ứng dụng trên màn hình nhỏ */
+        background-color: #f8f8f8;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px auto;
+        font-size: 16px;
+        color: #333;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .app-download-btn:hover {
+        background-color: #e8e8e8;
+    }
+}
+/* Khi màn hình lớn hơn 768px */
+@media (min-width: 769px) {
+    .app-download-btn {
+        display: none; /* Ẩn nút tải ứng dụng */
+    }
+
+
+}
+
+.text-1 {
+    text-align: center;
+    display: block;
+    font-size: 30px;
+    color: #3C3C3B;
+}
+
+.text-2 {
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    color: #3C3C3B;
+}
+
+
+.icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    max-width: 100%;
+    gap: 10px;
+}
+
+.images-logo {
+    width: 150px;
+    display: block;
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius:11px;
+}
+
+.images-logo img {
+    max-width: 150px;
+    height: auto;
+}
+.images-logo-1 img {
+    display: block;
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius:32px;
+    max-width: 150px;
+    height: auto;
+}
+
+.icon-button-app {
+    width: 150px;
+    margin: 0 5px;
+    display: flex;gap: 10px;align-items: center;
+}
+
+.search-wrap .container {
+    margin-top: 50px;
+    padding: 60px 40px;
+    transform: translatey(0);
+    background: white;
+}
+
+.form:not(.open) iframe {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.floating-action-menu {
+    bottom: 10px;
+    right: 10px;
+    z-index: 999;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.floating-action-menu>.action-menu {
+    visibility: hidden;
+    -webkit-transform: translateY(65px);
+    transform: translateY(65px);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+.floating-action {
+    background-color: #fff;
+    border-radius: 28px;
+    margin-top: 5px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    float: right;
+    clear: both;
+}
+
+.floating-action:hover {
+    background-color: #fff4f3;
+}
+
+.floating-action-menu.active>.action-menu {
+    visibility: visible;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+    opacity: 1;
+    padding-bottom: 5px;
+    max-height: 1000px;
+}
+
+.floating-action .badge {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #1a1a1a;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+a.floating-action:hover .badge {
+    color: #fa4612;
+}
+
+.floating-action-menu.active>.action-menu .btn-floating,
+.floating-action-menu.active>.action-menu .badge {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.floating-action-menu>.action-menu .btn-floating,
+.floating-action-menu>.action-menu .badge {
+    -webkit-transform: scale(0.4);
+    transform: scale(0.4);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+    </style>
+    <meta name="zalo-platform-site-verification" content="EFQQUBBhINfPxUCbXUDg65AIxZo-x3LaD3O" />
+</head>
+
+<body>
+    <!-- Start Preloader Area -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- End Preloader Area -->
+    {{block "menu2"}} {{end}}
+    {{include 'site/ghephang/default/component/header-home.html'}}
+    <!-- Start Header Area -->
+    {{include 'site/ghephang/default/component/model.html'}}
+
+    <!-- Start Search Box Modal -->
+    {{include 'site/ghephang/default/component/search.html'}}
+    <!-- End Search Box Modal -->
+
+    <div>
+        {{block "content"}} {{end}}
+    </div>
+
+    {{block "before_content"}}
+    {{end}}
+
+    {{include 'site/ghephang/default/component/footer-dark.html'}}
+    <!-- Start Footer Bottom Area -->
+    <footer class="footer-bottom-area footer-bottom-area-four">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="single-widget-bottom">
+                        <ul>
+                            <li>
+                                <a href="#">Điều khoản và điều kiện</a>
+                            </li>
+                            <li>
+                                <a href="#">Chính sách bảo mật</a>
+                            </li>
+                            <li>
+                                <a href="#">Đăng nhập</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="single-widget-bottom">
+                        <p>Copyright <i class="bx bx-copyright"></i> by ghephang.com. All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div>
+        <div id="overlay" onclick="off()" style="display: none;"></div>
+        <div class="position-fixed text-right floating-action-menu">
+            <div class="action-menu">
+                <a class="floating-action px-2 py-2" href="/tra-van-don">
+                    <div class="badge">Tra cứu vận đơn</div>
+                    <span class="btn-floating">
+                        <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab-search-bill.svg"
+                            alt="icon-fab-search-bill" class="img-fluid" width="30">
+                    </span>
+                </a>
+                <a class="floating-action px-2 py-2" href="/tao-don">
+                    <div class="badge">Yêu cầu báo giá</div>
+                    <span class="btn-floating">
+                        <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab-create-bill.svg"
+                            alt="icon-fab-create-bill" class="img-fluid" width="30">
+                    </span>
+                </a>
+                <a class="floating-action px-2 py-2" href="/tim-buu-cuc">
+                    <div class="badge">Tìm bưu cục</div>
+                    <span class="btn-floating">
+                        <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab-search-price.svg"
+                            alt="icon-fab-search-price" class="img-fluid" width="30">
+                    </span>
+                </a>
+                <!-- <a class="floating-action px-2 py-2" href="bang-gia-dich-vu">
+                    <div class="badge">Nhắn tin</div>
+                    <span class="btn-floating">
+                        <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab-price-list.svg" alt="icon-fab-price-list" class="img-fluid"
+                            width="30">
+                    </span>
+                </a> -->
+                <!-- <a class="floating-action px-2 py-2" href="/#footer-v2">
+                    <div class="badge">Tải App NTX</div>
+                    <span class="btn-floating">
+                        <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab-get-app.svg" alt="icon-fab-get-app" class="img-fluid" width="30">
+                    </span>
+                </a> -->
+                <!-- fb-messenger://user-thread/149397918580307  https://zalo.me/0377888678-->
+
+
+                <a class="floating-action px-2 py-2" id="chat_message_id" target="_blank" href="#">
+                    <div class="badge">Chat với GhepHang</div>
+                    <span class="btn-floating">
+                        <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab-chat.svg" alt="icon-fab-chat"
+                            class="img-fluid" width="30">
+                    </span>
+                </a>
+                <a class="floating-action px-2 py-2" href="tel:1900888678">
+                    <div class="badge">Liên hệ: <strong>1900888678</strong></div>
+                    <span class="btn-floating">
+                        <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab-phone.svg"
+                            alt="icon-fab-phone" class="img-fluid" width="30">
+                    </span>
+                </a>
+            </div>
+            <div class="d-block action-button">
+                <a class="btn-floating" onclick="on()">
+                    <img src="{{=URL('static','%s/images')%(static_default)}}/icon-fab.svg" alt="icon-fab"
+                        class="img-fluid" width="48" style="filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.3));">
+                </a>
+            </div>
+
+            <script>
+                window.onload = (event) => {
+                    const mesa = document.getElementById('chat_message_id')
+                    let url = 'https://www.facebook.com/Ghephangcom/'
+                     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth <= 550) {
+                        url = 'fb-messenger://user-thread/149397918580307'
+                    } 
+                    mesa.setAttribute('href', url);
+                };
+               
+            </script>
+        </div>
+    </div>
+
+    {{include 'site/ghephang/default/component/truck-order.html'}}
+    <!-- End Footer Bottom Area -->
+
+    <!-- Start Go Top Area -->
+    <div class="go-top">
+        <i class='bx bx-chevrons-up bx-fade-up'></i>
+        <i class='bx bx-chevrons-up bx-fade-up'></i>
+    </div>
+    <!-- End Go Top Area -->
+
+
+
+    <!-- Jquery Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/jquery.min.js"></script>
+    <!-- Bootstrap Bundle Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/bootstrap.bundle.min.js"></script>
+    <!-- Meanmenu Min JS -->
+    <script>
+        "use strict"; function on() { $(".floating-action-menu").hasClass("active") ? ($(".floating-action-menu").toggleClass("active"), document.getElementById("overlay").style.display = "none") : ($(".floating-action-menu").toggleClass("active"), document.getElementById("overlay").style.display = "block") } function off() { $(".floating-action-menu").toggleClass("active"), document.getElementById("overlay").style.display = "none" }
+    </script>
+    <script src="{{=URL('static','%s/js')%(static_default)}}/meanmenu.min.js"></script>
+    <!-- Wow Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/wow.min.js"></script>
+    <!-- Owl Carousel Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/owl.carousel.min.js"></script>
+    <!-- Owl Magnific Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/magnific-popup.min.js"></script>
+    <!-- Nice Select Min JS -->
+    <!-- <script src="{{=URL('static','%s/js')%(static_default)}}/nice-select.min.js"></script> -->
+    <!-- Appear JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/appear.min.js"></script>
+    <!-- Odometer JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/odometer.min.js"></script>
+    <!-- jarallax Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/jarallax.min.js"></script>
+    <!-- Form Ajaxchimp Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/ajaxchimp.min.js"></script>
+    <!-- Form Validator Min JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/form-validator.min.js"></script>
+    <!-- Contact JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/contact-form-script.js"></script>
+    <!-- Custom JS -->
+    <script src="{{=URL('static','%s/js')%(static_default)}}/custom.js"></script>
+    <script src="{{=URL('static','%s/js')%(static_default)}}/redirect.js"></script>
+    {{block "block_js"}}
+    {{end}}
+</body>
+
+</html>

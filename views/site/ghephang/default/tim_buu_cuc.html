@@ -1,0 +1,283 @@
+{{extend 'site/ghephang/default/layouts.html'}}
+
+{{block "content"}}
+
+{{page_title ="Thông tin bưu cục"}}
+
+{{include 'site/ghephang/default/component/page-title.html'}}
+<script src="https://banhang.bahadi.vn/app/static/js/axios.min.js"></script>
+<!-- Start Inner Blog Details Area -->
+
+<section class="blog-details-area ptb-50">
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2  page_search_order" style="margin-bottom: 2em;">
+            <div class="row form_search_order">
+                <div class="col-md-6">
+                    <div id="id_city">
+                        <label for="citySelect">Tỉnh thành</label>
+                        <select class="select2 form-control" name="" id="citySelect">
+                            <option value="">Tất cả</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="id_district">
+                        <label for="districtSelect">Quận Huyện</label>
+                        <select class="select2 form-control" id="districtSelect">
+                            <option value="">Tất cả</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Danh sách bưu cục -->
+                <div class="col-12" id="officeList" >
+                    <div class="officeContainer card"  style="height: 500px; overflow-x: auto; margin-top: 1.5em;">
+                        <ul id="officeUl" style="padding-left: 15px; padding-right: 15px;">
+                            <!-- Danh sách bưu cục sẽ được hiển thị ở đây -->
+                        </ul>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        <div class="col-8 col-md-offset-2 page_search_order mb-4">
+            <a class="default-btn" href=".form">
+                Đăng ký
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Start Search Box Modal -->
+<div class="search-wrap hiden-load" style="display: none;">
+    <div class="form">
+        <button type="button" class="close">×</button>
+        <div class="container py-4" style="max-width: 1000px;">
+            <h3 class="text-center">Đăng ký làm bưu cục</h3>
+            <iframe frameborder="0" style="width:100%" id="ecrm-optin-2" width="100%" height="500"></iframe>
+            <script>
+                function setOptinForm2Src() {
+                    var utm = get_utm_url();
+                    var qs = getQueryString(utm);
+                    var rootUrl = location.href;
+                    var s = "https://ghephang.nobi.pro/optinform/2?u=" + rootUrl + "?" + qs;
+                    var iframe1 = document.getElementById("ecrm-optin-2");
+                    (navigator.userAgent.indexOf("MSIE") == -1) ? (iframe1.src = s) : (iframe1.location = s);
+                }
+                function ecrmSetCookie(name, value, days) {
+                    var expires = "";
+                    if (days) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                }
+
+                function ecrmGetCookie(name) {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                }
+
+                function get_utm_url() {
+                    var utmStr = ecrmGetCookie("nobita-utm");
+
+                    var old = {};
+                    if (utmStr && utmStr !== null) {
+                        old = JSON.parse(atob(utmStr));
+                    }
+
+                    var params = new URLSearchParams(window.location.search);
+                    var check = false;
+                    // check trên url xem có phải là link utm không
+                    for (var [key, value] of params.entries()) {
+                        old[key] = value;
+                    }
+                    ecrmSetCookie("nobita-utm", btoa(JSON.stringify(old)), 30);
+
+                    return old;
+                }
+
+                function getQueryString(params) {
+                    return Object.keys(params)
+                        .map(key => key + "=" + params[key])
+                        .join('&');
+                }
+
+                setTimeout(setOptinForm2Src, 5);
+            </script>
+        </div>
+
+    </div>
+</div>
+<!-- End Search Box Modal -->
+
+
+
+{{end}}
+
+{{block "block_css"}}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{{end}}
+<!-- End Inner Blog Details Area -->
+{{block "block_js"}}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+            // Áp dụng Select2 cho citySelect
+            $('#citySelect').select2();
+            // Áp dụng Select2 cho districtSelect
+            $('#districtSelect').select2();
+            // Lưu danh sách bưu cục gốc từ API
+            let originalOffices = [];
+
+            // Hàm để tải danh sách tỉnh/thành phố từ API
+            async function loadCities() {
+                try {
+                    const response = await fetch("https://quanly.ghephang.com/gh/api_v1/locations.json");
+                    const data = await response.json();
+
+                    data.forEach(city => {
+                        const option = document.createElement("option");
+                        option.value = city.id;
+                        option.textContent = city.name;
+                        $('#citySelect').append(option);
+                    });
+
+                    // Gọi hàm để hiển thị danh sách bưu cục khi mặc định là "Tất cả"
+                    loadOffices();
+                } catch (error) {
+                    console.error("Lỗi khi tải dữ liệu tỉnh/thành phố từ API:", error);
+                }
+            }
+
+            // Hàm để tải danh sách Quận/huyện dựa trên Tỉnh/thành đã chọn
+            async function loadDistricts(cityId) {
+                try {
+                    // Xóa tất cả các option hiện có trong select Quận/huyện
+                    $('#districtSelect').empty();
+
+                    // Tải danh sách Quận/huyện từ API dựa trên Tỉnh/thành đã chọn
+                    const response = await fetch(`https://quanly.ghephang.com/gh/api_v1/locations.json?parentId=${cityId}`);
+                    const data = await response.json();
+
+                    // Tạo option "Tất cả" cho select Quận/huyện
+                    const allOption = document.createElement("option");
+                    allOption.value = "";
+                    allOption.textContent = "Tất cả";
+                    $('#districtSelect').append(allOption);
+
+                    // Thêm danh sách Quận/huyện từ API vào select Quận/huyện
+                    data.forEach(district => {
+                        const option = document.createElement("option");
+                        option.value = district.id;
+                        option.textContent = district.name;
+                        $('#districtSelect').append(option);
+                    });
+
+                    // Hiển thị danh sách bưu cục khi chọn Tỉnh/thành phố
+                    loadOffices();
+                } catch (error) {
+                    console.error("Lỗi khi tải dữ liệu Quận/huyện từ API:", error);
+                }
+            }
+
+            // Hàm để tải danh sách bưu cục dựa trên Tỉnh/thành phố và Quận/huyện đã chọn
+            async function loadOffices() {
+                const selectedCityId = $('#citySelect').val();
+                const selectedDistrictId = $('#districtSelect').val();
+
+                // Xóa tất cả các bưu cục hiện có
+                $('#officeUl').empty();
+
+                // Lấy danh sách bưu cục từ API
+                let apiUrl = "https://quanly.ghephang.com/gh/api_v1/post_office.json";
+
+                if (selectedCityId) {
+                    apiUrl += `?city=${selectedCityId}`;
+                }
+
+                if (selectedDistrictId) {
+                    apiUrl += `&district=${selectedDistrictId}`;
+                }
+
+                try {
+                    const response = await fetch(apiUrl);
+                    const data = await response.json();
+                    // Lưu danh sách bưu cục gốc từ API
+                    originalOffices = data.result;
+                    // Hiển thị danh sách bưu cục
+                    displayOffices(originalOffices);
+                } catch (error) {
+                    console.error("Lỗi khi tải dữ liệu bưu cục từ API:", error);
+                }
+            }
+
+            // Hàm để xóa danh sách bưu cục hiển thị trước đó
+            function clearOfficeList() {
+                $('#officeUl').empty();
+            }
+            // Hàm để hiển thị danh sách bưu cục
+            function displayOffices(officeData) {
+                officeData.forEach(office => {
+                    // Tạo một thẻ div với class "card" cho mỗi văn phòng
+                    const officeDiv = document.createElement("div");
+                    officeDiv.style.marginBottom = "5px";
+                    officeDiv.style.marginTop = "10px";
+                    officeDiv.style.borderBottom = "1px solid #e0e0e0";
+
+                    // Tạo thẻ li cho tên văn phòng và gắn class "card-title"
+                    const nameOffice = document.createElement("li");
+                    nameOffice.innerHTML = office.name;
+                    nameOffice.classList.add("card-title");
+                    nameOffice.style.fontWeight = "bold";
+                    officeDiv.appendChild(nameOffice);
+
+                    // Tạo thẻ li cho địa chỉ và gắn class "card-subtitle mb-2 text-muted"
+                    const addressOffice = document.createElement("li");
+                    addressOffice.innerHTML = '<i class="bx bxs-map" style="font-size: 14px; margin-right: 1px" ></i> ' + office.address + ', ' + office.ward_name + ', ' + office.district_name + ', ' + office.city_name; // Sử dụng biểu tượng từ Font Awesome
+                    officeDiv.appendChild(addressOffice);
+                    // Tạo thẻ li cho số điện thoại và gắn class "card-link"
+                    const phoneOffice = document.createElement("li");
+                    phoneOffice.innerHTML = '<i class="bx bxs-phone-call" style="font-size: 14px; margin-right: 4px;"></i>';
+                    
+                    phoneOffice.style.marginBottom = "5px";
+                    const phoneLink = document.createElement("a");
+                    phoneLink.href = 'tel:' + office.phone;
+                    phoneLink.textContent = office.phone;
+                    phoneLink.style.color = "#ff5722"
+                    phoneOffice.appendChild(phoneLink);
+                    officeDiv.appendChild(phoneOffice);
+                    // Gắn thẻ div vào thẻ ul (có id là 'officeUl')
+                    $('#officeUl').append(officeDiv);
+                });
+            }
+
+
+            // Sự kiện khi thay đổi Tỉnh/thành phố
+            $('#citySelect').on('change', function () {
+                const selectedCityId = $('#citySelect').val();
+                loadDistricts(selectedCityId);
+            });
+
+            // Sự kiện khi thay đổi Quận/huyện
+            $('#districtSelect').on('change', function () {
+                loadOffices();
+            });
+
+            // Gọi hàm để tải danh sách tỉnh/thành phố ban đầu
+            loadCities();
+        });
+
+</script>
+
+{{end}}

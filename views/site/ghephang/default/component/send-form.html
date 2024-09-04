@@ -1,0 +1,86 @@
+<!-- Start Track Area -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab quote-list-tab">
+                    <ul class="tabs">
+                        <!-- <li>
+                            <a href="#">
+                                <i class="flaticon-truck"></i>
+                                Tạo đơn hàng
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="#">
+                                Yêu cầu báo giá
+                                <i class="flaticon-quote"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab_content">
+                        <div class="tabs_item">
+                            <iframe frameborder="1" style="width:100%" id="ecrm-optin-1" width="100%" height="420px" ></iframe>
+                            <script>
+                                function setOptinForm1Src() {
+                                    var utm = get_utm_url();
+                                    var qs = getQueryString(utm);
+                                    var rootUrl = location.href;
+                                    var s = "https://ghephang.nobi.pro/optinform/1?u=" + rootUrl + "?" + qs;
+                                    var iframe1 = document.getElementById("ecrm-optin-1");
+                                    (navigator.userAgent.indexOf("MSIE") == -1) ? (iframe1.src = s) : (iframe1.location = s);
+                                }
+                                function ecrmSetCookie(name, value, days) {
+                                    var expires = "";
+                                    if (days) {
+                                        var date = new Date();
+                                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                                        expires = "; expires=" + date.toUTCString();
+                                    }
+                                    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                                }
+
+                                function ecrmGetCookie(name) {
+                                    var nameEQ = name + "=";
+                                    var ca = document.cookie.split(';');
+                                    for (var i = 0; i < ca.length; i++) {
+                                        var c = ca[i];
+                                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                                    }
+                                    return null;
+                                }
+
+                                function get_utm_url() {
+                                    var utmStr = ecrmGetCookie("nobita-utm");
+
+                                    var old = {};
+                                    if (utmStr && utmStr !== null) {
+                                        old = JSON.parse(atob(utmStr));
+                                    }
+
+                                    var params = new URLSearchParams(window.location.search);
+                                    var check = false;
+                                    // check trên url xem có phải là link utm không
+                                    for (var [key, value] of params.entries()) {
+                                        old[key] = value;
+                                    }
+                                    ecrmSetCookie("nobita-utm", btoa(JSON.stringify(old)), 30);
+
+                                    return old;
+                                }
+
+                                function getQueryString(params) {
+                                    return Object.keys(params)
+                                        .map(key => key + "=" + params[key])
+                                        .join('&');
+                                }
+
+                                setTimeout(setOptinForm1Src, 5);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- End Track Area -->

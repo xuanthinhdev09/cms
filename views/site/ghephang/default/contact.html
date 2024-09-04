@@ -1,0 +1,55 @@
+{{extend 'site/ghephang/default/layouts.html'}}
+
+{{block "content"}}
+
+{{page_title ='Gửi yêu cầu'}}
+{{include 'site/ghephang/default/component/page-title.html'}}
+
+<!-- Start Address Area -->
+<section class="address-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-address">
+                    <i class='bx bx-phone-call'></i>
+                    <h3>Liên hệ</h3>
+                    <span>Gọi cho chúng tôi</span>
+
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-address">
+                    <i class='bx bx-location-plus'></i>
+                    <h3>Địa chỉ</h3>
+                    <span>Trụ sở chính</span>
+                    <p>Số 117 Phan Đình Phùng, <br>Phường Cửu Nam, TP. Vinh, Nghệ an</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+                <div class="single-address">
+                    <i class='bx bx-time'></i>
+                    <h3>Thời gian làm việc</h3>
+                    <span>Sẵn sàng phục vụ</span>
+                    <p>7:30 AM – 5:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Address Area -->
+
+<!-- Start Map Area -->
+<div class="contact-map-area pb-70">
+    <div class="container">
+        <!-- Google maps -->
+        {{include 'site/ghephang/default/component/maps.html'}}
+    </div>
+</div>
+<!-- End Map Area -->
+{{titleForm='HÃY ĐỂ CHÚNG TÔI GIẢI QUYẾT NHỮNG THÁCH THỨC TRĂN TRỞ CỦA BẠN'}}
+
+{{include 'site/ghephang/default/component/contact-form.html'}}
+
+
+{{end}}

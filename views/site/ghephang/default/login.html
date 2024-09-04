@@ -1,0 +1,28 @@
+ {{extend 'site/ghephang/default/layouts.html'}}
+
+{{block "content"}}
+{{from plugin_cms import CmsFolder}}
+{{page_title =CmsFolder().folder_name(request.args(0))}}
+<hr/>
+ 
+ 
+    <div class="container">
+    <div class="row">
+      <div class="col-md-6 align-self-center">
+		
+		<br/>
+		<br/>
+		<br/>
+		{{=form}}
+		
+		<br/>
+		<br/>
+		<br/>
+      </div>
+       
+    </div>
+    </div>
+ 
+
+
+{{end}}

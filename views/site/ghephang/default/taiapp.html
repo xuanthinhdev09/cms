@@ -1,0 +1,31 @@
+ {{extend 'site/ghephang/default/layouts.html'}}
+
+{{block "content"}}
+{{from plugin_cms import CmsFolder}}
+{{page_title =CmsFolder().folder_name(request.args(0))}}
+
+{{include 'site/ghephang/default/component/page-title.html'}}
+<section id="download" class="section-bg pt-100 pb-70">
+		<div class="container">
+			<div class="section-title">
+				<h2> Tải ứng dụng</h2>
+			</div>
+			<div style='text-align:center;'>
+            
+					<img style='width:100%; float:left;' src="https://ghephang.com/cms/static/images/taiapp.jpg">
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+			</div>
+					
+				 
+		</div>
+	</section>
+
+
+{{end}}

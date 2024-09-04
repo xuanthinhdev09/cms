@@ -1,0 +1,66 @@
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a href="/khach-hang" class="nav-link">Khách hàng</a>
+    </li>
+    <li class="nav-item">
+        <a href="/buu-cuc" class="nav-link">Bưu cục</a>
+    </li>
+    <li class="nav-item">
+        <a href="/tai-xe" class="nav-link">Tài xế</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a href="/tra-van-don" class="nav-link dropdown-toggle">
+            Tiện ích
+            <i class='bx bx-chevron-down'></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="nav-item">
+                <a href="/tra-van-don" class="nav-link">Tra cứu vận đơn</a>
+            </li>
+            <li class="nav-item">
+                <a href="/tim-buu-cuc" class="nav-link">Tìm bưu cục</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a href="/gioi-thieu" class="nav-link dropdown-toggle">
+            Về chúng tôi
+            <i class='bx bx-chevron-down'></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="nav-item">
+                <a href="/gioi-thieu" class="nav-link">Về chúng tôi</a>
+            </li>
+            <li class="nav-item">
+                <a href="/faq" class="nav-link">Câu hỏi thường gặp</a>
+            </li>
+            <li class="nav-item">
+                <a href="/tin-tuc-su-kien" class="nav-link">Tin tức sự kiện</a>
+            </li>
+            <li class="nav-item">
+                <a href="/lien-he" class="nav-link">Liên hệ</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let currentPath = window.location.pathname;
+
+    // Kiểm tra mục chính và thêm 'active' cho mục phù hợp
+    document.querySelectorAll('.navbar-nav .nav-item > .nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+
+    // Kiểm tra các mục con và thêm 'active' cho mục phù hợp
+    document.querySelectorAll('.navbar-nav .dropdown-menu .nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+            // Thêm 'active' cho mục cha
+            link.closest('.dropdown').querySelector('.nav-link').classList.add('active');
+        }
+    });
+});
+</script>

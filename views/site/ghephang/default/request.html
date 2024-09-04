@@ -1,0 +1,17 @@
+{{extend 'site/ghephang/default/layouts.html'}}
+
+
+<!-- Start FAQ Area -->
+{{block "content"}}
+{{page_title ='Gửi yêu cầu'}}
+{{include 'site/ghephang/default/component/page-title.html'}}
+<section class="track-area ptb-100">
+    {{include 'site/ghephang/default/component/send-form.html'}}
+</section>
+{{include 'site/ghephang/default/component/faq.html'}}
+<!-- End FAQ Area -->
+{{titleForm = 'Ask Question'}}
+{{include 'site/ghephang/default/component/contact-form.html'}}
+{{end}}
+
+

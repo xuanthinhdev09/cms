@@ -1,0 +1,17 @@
+.upload_table {}
+.upload_table tr { border-bottom:1px solid #eee;}
+.upload_table .icon_doc { background:url(../images/docx.png) no-repeat center right; width:22px; height:22px; display:block;font-size:0; }
+.upload_table .icon_png { background:url(../images/img_icon.png) no-repeat center right; width:22px; height:22px; display:block;font-size:0; }
+.upload_table .icon_pdf { background:url(../images/PDF-icon.png) no-repeat center right; width:22px; height:22px; display:block;font-size:0; }
+.upload_table .icon_docx { background:url(../images/docx.png) no-repeat center right; width:22px; height:22px; display:block;font-size:0; }
+.upload_table .icon_rar { background:url(../images/rar.png) no-repeat center right; width:22px; height:22px; display:block;font-size:0; }
+.upload_table .icon_zip { background:url(../images/rar.png) no-repeat center right; width:22px; height:22px; display:block;font-size:0; }
+.upload_table .upload_name { line-height:23px;}
+.upload_table .icon_preview { background:url(../images/search-2.png) no-repeat center right; display:block;font-size:12px;  padding-right:30px; line-height:32px;  }
+.upload_table .icon_not_preview { display:block;font-size:12px;  padding-right:30px;width:120px;}
+.upload_table .icon_download { background:url(../images/inbox_download.png) no-repeat center right; width:22px; height:22px; display:block;font-size:0;}
+
+.archives_delait tr:nth-child(even) {background: #FFFFE0}
+.archives_delait tr:nth-child(odd) {background: #FFF}
+.archives_delait table {margin:0;}
+.archives_delait th {width:160px;}

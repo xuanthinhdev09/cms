@@ -1,0 +1,110 @@
+{{extend 'site/ghephang/default/layouts.html'}}
+
+{{block "content"}}
+
+{{page_title ='Tin tức'}}
+
+{{include 'site/ghephang/default/component/page-title.html'}}
+
+    <!-- Start Inner Blog Details Area -->
+    <section class="blog-details-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="blog-details-desc">
+                        <div class="article-image">
+                            <img src="{{=URL('static','%s/img')%(static_default)}}/blog-details/news-details-img.jpg" alt="image">
+                        </div>
+
+                        <div class="article-content">
+                            <div class="entry-meta">
+                                <ul>
+                                    <li><span>Posted On:</span> <a href="#">January 31 , 2020</a></li>
+                                    <li><span>Posted By:</span> <a href="#">John Anderson</a></li>
+                                </ul>
+                            </div>
+    
+                            <h3>Supply chain visibility to manage transportation</h3>
+    
+                            <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam
+                                eius modi tempora incidunt ut labore et dolore magnam dolor sit, consectetur.</p>
+    
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.
+                            </p>
+    
+                            <blockquote class="flaticon-quote">
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus aliquid praesentium
+                                    eveniet illum asperiores, quidem, ipsum voluptatum numquam ducimus nisi exercitationem
+                                    dolorum facilis.</p>
+                            </blockquote>
+    
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.
+                            </p>
+                        </div>
+
+                        <div class="article-footer">
+                            <div class="article-tags">
+                                <span><i class='bx bx-share-alt'></i></span>
+    
+                                <a href="#">Share</a>
+                            </div>
+    
+                            <div class="article-share">
+                                <ul class="social">
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-facebook'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-twitter'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-linkedin'></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <i class='bx bxl-pinterest-alt'></i>
+                                        </a>
+                                    </li>
+    
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="post-navigation">
+                            <div class="navigation-links">
+                                <div class="nav-previous">
+                                    <a href="#"><i class='bx bx-left-arrow-alt'></i> Prev Post</a>
+                                </div>
+    
+                                <div class="nav-next">
+                                    <a href="#">Next Post <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                        </div>
+    
+                        {{include "site/ghephang/default/component/comment.html"}}
+
+                    </div>
+                </div>
+    
+               {{include "site/ghephang/default/component/sidebar.html"}}
+
+            </div>
+        </div>
+    </section>
+    <!-- End Inner Blog Details Area -->
+
+
+{{end}}

@@ -1,0 +1,134 @@
+@media print 
+{
+	#simplePrint{
+		display:none!important;
+	}
+}
+#page_a4 {height:280mm; width:210mm;margin:0 auto; background:#fff; padding:5px; }
+#page_a4_quahan {height:210mm; width:280mm;margin:0 auto; background:#fff; padding:5px; }
+.print_list {border:none !important;} 
+#btnPrint {width:830px; margin:0 auto; text-align:center;}			
+#simplePrint {display: inline-block;padding: 6px 12px; font-size: 14px; line-height: 1.42857143;cursor: pointer;border: 1px solid transparent;border-radius: 4px; color: #fff;background-color: #337ab7;border-color: #2e6da4;}
+#page_a4 {font-size:12px;}
+#page_a4 p {line-height:20px;}
+#page_a4 .barcode39 {}
+#page_a4 .title {font-size: 22px;}
+#page_a4 .ho_so { margin:5px; margin-left: 20px; display: block; }
+#page_a4 .main_content { min-height:270px;}
+				
+.head{
+	text-align: center;
+	font-size:17px;
+	font-weight:bold;
+}
+.body1{
+	text-align:center;
+	font-weight:bold;
+}
+#tit{
+	text-transform:uppercase;
+	font-size:17px;
+}
+.cq{
+	text-align:center-left;font-size:17px;
+}
+#cq1{
+	font-weight: bold;
+	margin-top:-10px;
+
+
+}
+.ch{
+	margin-left:40px;
+	text-align:center;
+	font-weight:bold;
+}
+#ch1{
+	text-transform:uppercase;
+	margin-bottom:-10px;
+	
+}
+
+.tieude{
+	text-transform: uppercase; 
+	text-align:center; 
+	font-size:17px; 
+	margin-top:65px;
+	font-weight:bold;
+}
+ul{
+	list-style-type:upper;
+}
+.ky{
+	float:right;
+	text-align:center;
+	margin-right:40px;
+}
+
+#ky1{
+	text-transform:uppercase;
+	font-weight:bold;
+}
+#ky2{
+	font-style:italic;
+}
+td,table,th{
+	height:28px;
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#hr1{
+	width:200px; 
+	margin-top:-15px;
+	border-width: 1px;
+	color:#3B3A3A;
+	height: 2px;
+	background-color:#3B3A3A;
+}
+#hr2{
+	width:50px; 
+	margin-top:-15px;
+	border-width: 1px;
+	color:#3B3A3A;
+	height: 2px;
+	background-color:#3B3A3A;
+}
+#mg{
+	margin-bottom:-12px;
+}
+ #mg1{
+	margin-top:-12px;
+}
+#mg3{
+	margin-top:-10px;
+}
+
+@media print 
+{
+ #in{
+  display:none!important;
+ }
+}
+#btn_print { background:url(../images/print.png) no-repeat left; padding-left:30px; width: 200px; height:30px;font-family: Arial; font-weight:bold;}
+#in {
+		color: #FFF;
+background-color: #286090;
+border-color: #204D74;
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 20px;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+-moz-user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+
+	}
+

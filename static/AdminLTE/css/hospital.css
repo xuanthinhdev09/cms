@@ -1,0 +1,94 @@
+.title{
+	padding:15px;font-size:20px;color:#f39c12;border-bottom:3px solid #18a31e;text-transform:uppercase;
+	}
+.xcontent .fa-2x { font-size:28px !important;}
+.xcontent{
+	margin-top:0px
+	}
+.list-control{
+	padding: 5px 0px;
+	margin-top:-20px;
+	float:left;
+	}
+.body-content{
+	padding:10px 0px 0px 0px;
+	}
+#btn-control>span{
+	margin:5px;
+	}
+#btn-control{
+	margin-bottom:10px;
+	background: #c1d8e5;
+	}
+thead{
+	background:#1f4b66;color:#fff;
+	}
+thead>tr>th{
+	text-align:center;
+	vertical-align:middle !important;
+	}
+
+tbody>tr:nth-child(2n+1){
+	background:#d6d8d9;
+	}
+.line-th{
+	background-image: linear-gradient(to top right,  transparent calc(50% - 1px), #fff, transparent calc(50% + 1px));position:relative;
+	}
+.th-cross{
+	position: absolute;left: 5px;top: 15px;
+	}
+.th-subcross{
+	position: absolute;right: 5px;top: 5px;
+	}
+#findtext::before{content:"Tìm kiếm";}
+
+.list-control span{
+	margin-right:5px;
+}	
+.table-center td,.text-center{
+	text-align:center;
+}
+.circle{
+}
+.cou-patient{
+	font-size:16px;
+	color:green;
+	line-height:8px;
+}
+
+.scroll-follow{
+	overflow:auto;
+}
+
+.scroll-follow::-webkit-scrollbar ,#table-over::-webkit-scrollbar,.modal-body::-webkit-scrollbar{
+		width: 5px;
+		height:5px;
+	}
+	 
+.scroll-follow::-webkit-scrollbar-track,#table-over::-webkit-scrollbar-track ,.modal-body::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.scroll-follow::-webkit-scrollbar-thumb,#table-over::-webkit-scrollbar-thumb ,.modal-body::-webkit-scrollbar-thumb{
+	background-color: #3c8dbc;
+	outline: 1px solid slategrey;
+	border-radius:5px;
+}
+
+.table-left .form-group{
+	text-align:left;
+}
+.textleft {text-align:left !important;}
+.textright {text-align:right !important;}
+
+.skin-green-light .main-header .navbar {background-color:#FFC107 !important; }
+.sidebar-menu li {border-bottom: 1px solid #e3e3e3 !important;}
+.skin-green-light .sidebar-menu>li:hover>a, .skin-green-light .sidebar-menu>li.active>a {
+    color: #000;
+    background: #d1d1d1 !important;
+}
+.skin-green-light .main-header .logo {
+background-color: #00a65a;}
+
+.navbar-nav .user-menu .dropdown-menu li.user-header img { background:#fff; }
+.navbar-nav .user-menu .user-image { background:#fff; }

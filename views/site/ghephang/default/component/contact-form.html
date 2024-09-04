@@ -1,0 +1,108 @@
+<!-- Start FAQ Contact Area -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<section class="faq-contact-area pb-100">
+    <div class="container">
+        <div class="ask-question">
+            <div class="section-title">
+                <span class="pumpkin-color">Thông tin</span>
+                <h2>{{=titleForm}}</h2>
+                <p><b>Đăng ký thông tin của bạn để nhận tư vấn từ Ghephang.</br>
+                Chúng tôi sẽ liên hệ với bạn ngay để hỗ trợ một cách nhanh chóng.</b></p>
+            </div>
+            <form id="contactForm">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-control" required
+                                data-error="Vui lòng nhập họ tên" placeholder="Họ và Tên">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" name="msg_subject" id="msg_subject" class="form-control" required
+                                data-error="Vui lòng cung cấp ngành kinh doanh của bạn" placeholder="Ngành kinh doanh của bạn?">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" name="phone_number" id="phone_number" required
+                                data-error="Vui lòng thêm số điện thoại của bạn" class="form-control" placeholder="Số điện thoại">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" name="area_of_business" id="area_of_business" class="form-control" required
+                                data-error="Vui lòng nhập khu vực bạn kinh doanh" placeholder="Khu vực kinh doanh">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" class="form-control" required
+                                data-error="Vui lòng nhập email liên hệ" placeholder="Email">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                            <input type="text" name="delivery_needs" id="delivery_needs" class="form-control" required
+                            data-error="Hãy cung cấp nhu cầu giao hàng của bạn" placeholder="Nhu cầu giao hàng">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12">
+                        <button type="submit" class="default-btn btn-two">
+                            <span class="label">Gửi yêu cầu</span>
+                            <i class='bx bx-plus'></i>
+                        </button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- End FAQ Contact Area -->
+<script>
+
+  (function(){
+    emailjs.init("9yv4DbQw0p5zvjfjR");
+  })();
+
+
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+
+    var formData = {
+  name: document.getElementById('name').value,
+  msg_subject: document.getElementById('msg_subject').value,
+  phone_number: document.getElementById('phone_number').value,
+  area_of_business: document.getElementById('area_of_business').value,
+  email: document.getElementById('email').value,
+  delivery_needs: document.getElementById('delivery_needs').value
+};
+
+
+    emailjs.send("service_q3yf78p", "template_g8ydfsh", formData)
+      .then(function(response) {
+        document.getElementById('msgSubmit').innerHTML = 'Email sent successfully!';
+        document.getElementById('msgSubmit').classList.remove('hidden');
+        console.log('Success!', response);
+      }, function(error) {
+        document.getElementById('msgSubmit').innerHTML = 'Failed to send email.';
+        document.getElementById('msgSubmit').classList.remove('hidden');
+        console.log('Failed...', error);
+      });
+  });
+</script>

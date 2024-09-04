@@ -1,0 +1,246 @@
+@media print 
+{
+	#simplePrint{
+		display:none!important;
+	}
+}
+#page_a4 {height:280mm; width:210mm;margin:0 auto; background:#fff; padding:5px; }
+#page_a4_quahan {height:210mm; width:280mm;margin:0 auto; background:#fff; padding:5px; }
+.print_list {border:none !important;} 
+#btnPrint {width:830px; margin:0 auto; text-align:center;}			
+#simplePrint {display: inline-block;padding: 6px 12px; font-size: 14px; line-height: 1.42857143;cursor: pointer;border: 1px solid transparent;border-radius: 4px; color: #fff;background-color: #337ab7;border-color: #2e6da4;}
+#page_a4 {font-size:12px;}
+#page_a4 p {line-height:20px;}
+#page_a4 .barcode39 {}
+#page_a4 .title {font-size: 22px;}
+#page_a4 .ho_so { margin:5px; margin-left: 20px; display: block; }
+#page_a4 .main_content { min-height:270px;}
+				
+.head{
+	text-align: center;
+	font-size:17px;
+	font-weight:bold;
+}
+.body1{
+	text-align:center;
+	font-weight:bold;
+}
+#tit{
+	text-transform:uppercase;
+	font-size:17px;
+}
+.cq{
+	text-align:center-left;font-size:17px;
+}
+#cq1{
+	font-weight: bold;
+	margin-top:-10px;
+
+
+}
+.ch{
+	margin-left:40px;
+	text-align:center;
+	font-weight:bold;
+}
+#ch1{
+	text-transform:uppercase;
+	margin-bottom:-10px;
+	
+}
+
+.tieude{
+	text-transform: uppercase; 
+	text-align:center; 
+	font-size:17px; 
+	margin-top:65px;
+	font-weight:bold;
+}
+ul{
+	list-style-type:upper;
+}
+.ky{
+	float:right;
+	text-align:center;
+	margin-right:40px;
+}
+
+#ky1{
+	text-transform:uppercase;
+	font-weight:bold;
+}
+#ky2{
+	font-style:italic;
+}
+
+
+#hr1{
+	width:200px; 
+	margin-top:-15px;
+	border-width: 1px;
+	color:#3B3A3A;
+	height: 2px;
+	background-color:#3B3A3A;
+}
+#hr2{
+	width:50px; 
+	margin-top:-15px;
+	border-width: 1px;
+	color:#3B3A3A;
+	height: 2px;
+	background-color:#3B3A3A;
+}
+#mg{
+	margin-bottom:-12px;
+}
+ #mg1{
+	margin-top:-12px;
+}
+#mg3{
+	margin-top:-10px;
+}
+
+@media print 
+{
+ #in{
+  display:none!important;
+ }
+}
+#btn_print { background:url(../images/print.png) no-repeat left; padding-left:30px; width: 200px; height:30px;font-family: Arial; font-weight:bold;}
+#in {
+		color: #FFF;
+background-color: #286090;
+border-color: #204D74;
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 20px;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+-moz-user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+
+	}
+
+	
+/* In phiếu tiếp nhận và hẹn trả kết quả */
+.barcode39{
+	width:200px;height:20px;float:left;
+}
+.header{
+	text-align:center;
+	width:100%;
+	font-family:Times New Roman;	
+}
+.header p{
+	margin-bottom:-11px;
+}
+.header table{
+	width:100%;
+	font-weight:bold;
+}	
+.header table>tbody>tr>td:nth-child(1){
+	width:42%;
+	text-align:center;
+	text-transform:uppercase;
+	height:30px;
+}
+.header table>tbody>tr>td:nth-child(1)>p:nth-child(3)>span{
+	border-bottom:1px solid;
+}
+.header table>tbody>tr>td:nth-child(2){
+	width:58%;
+	text-align:center;
+	text-transform:uppercase;
+	height:30px;
+	vertical-align:top;
+}
+.header table>tbody>tr>td:nth-child(2)>p:nth-child(2){
+	text-transform:none;
+}
+.header table>tbody>tr>td:nth-child(2)>p:nth-child(2)>span{
+	border-bottom:1px solid;
+}
+
+.no-date{
+	width:100%;
+	padding:0px 0px 40px;
+}
+.title{
+	text-align:center;
+	font-weight:bold;
+	margin-bottom:60px;
+}
+.title>p{
+	margin-bottom:-12px;
+}
+.title>p:nth-child(1){
+	font-size:18px;
+	text-transform:uppercase;
+}
+.title>p:nth-child(3){
+	font-weight:100;
+	font-style:italic;
+}
+
+.body{
+	padding-left:20px;
+}
+.body p{
+	/* height:12px; */
+	line-height:normal;
+	margin-bottom:-13px;
+}
+.body>p>table{
+	width:100%;
+}
+.body > p > table > tbody > tr > td:nth-child(1){
+	width:20%;
+}
+.body > p > table > tbody > tr > td:nth-child(3){
+	width:20%;
+}
+.body > p > table > tbody > tr > td:nth-child(2){
+	width:30%;
+}
+.body > p > table > tbody > tr > td:nth-child(4){
+	width:30%;
+}
+.body >ul>li{
+	/* height:12px; */
+	line-height:20px;
+}
+.body >ul>li>ol{
+	padding-left:55px;
+}
+.footer{
+	margin-top:30px;
+	text-align:center;
+	width:100%;
+}
+.footer table{
+	width:100%;
+}
+.footer table>tbody>tr>td:nth-child(1){
+	width:50%;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-align:center;
+}
+.footer table>tbody>tr>td:nth-child(2){
+	width:50%;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-align:center;
+	
+}
+
+.print-recived{
+	font-size:20px;
+}

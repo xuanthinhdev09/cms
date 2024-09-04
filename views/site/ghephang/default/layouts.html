@@ -1,0 +1,10 @@
+{{extend 'site/ghephang/default/layout.html'}}
+
+{{block "config_page"}}
+    {{is_page = "page" }}
+    {{class_top = ""}}
+{{end}}
+
+{{block "before_content"}}
+    {{#include 'site/ghephang/default/component/subscribe.html'}}
+{{end}}

@@ -1,0 +1,47 @@
+{{extend 'site/ghephang/default/layouts.html'}}
+
+{{block "content"}}
+{{
+page_title='Doanh nghiệp'
+data = {
+'dis': 'Đồng hành cùng bạn mọi lúc mọi nơi trong công việc lẫn cuộc sống',
+'title': 'Giao hàng siêu tốc, giao trong ngày hoặc chủ động lên lịch trước.',
+'content': P('Dù hàng nhỏ hay hàng to cồng kềnh, bạn dễ dàng đặt đơn giao hàng nhanh chóng khi kết nối với tài xế gầnnhất.')+P(' Ứng dụng giao hàng theo yêu cầu nhanh chóng và đáng tin cậy, giao ngay siêu tốc hoặc chủ động đặt lịch hẹngiờ giao hàng, hỗ trợ đắc lực cho công việc kinh doanh của bạn ở mọi quy mô.'),
+'img': 'about-img-six.png',
+'video': 'https://www.youtube.com/watch?v=cTxCqUwnLg4',
+'benefit': [
+{
+'title': 'Giảm chi phí hoạt động',
+'content': 'Không cần đầu tư thiết lập đội ngũ giao hàng của riêng bạn. Bạn có thể tiết kiệm rất nhiều khi thuê ngoài vàchỉ thanh toán cho hoạt động giao hàng bất cứ khi nào bạn cần.',
+'img': I(_class='bx bxl-codepen')
+},
+{
+'title': 'Giao hàng nhanh chóng và linh hoạt',
+'content': 'Giao nhanh siêu tốc, giao trong ngày hoặc chủ động lên lịch trước. Chúng tôi luôn sẵn sàng bất cứ khi nàobạn cần và luôn cam kết chất lượng phục vụ tốt nhất.',
+'img': I(_class='bx bx-store')
+},
+{
+'title': 'Hoàn toàn an tâm',
+'content': 'Đối tác tài xế được đào tạo bài bản và chuyên nghiệp. Bạn dễ dàng theo dõi đơn hàng và luôn được hỗ trợ quảnlý cũng như xử lý nếu có phát sinh. Chúng tôi đang đồng hành cùng hàng ngàn doanh nghiệp để thực hiện dịch vụ giao hàngsiêu tốc mỗi ngày.',
+'img': I(_class='bx bx-box')
+}
+]
+}
+}}
+{{include 'site/ghephang/default/component/page-title.html'}}
+
+{{include 'site/ghephang/default/component/about-choose.html'}}
+
+<!-- Start Counter Area -->
+{{include 'site/ghephang/default/component/counter-area.html'}}
+<!-- End Counter Area -->
+
+{{include 'site/ghephang/default/component/fun-facts.html'}}
+
+{{include 'site/ghephang/default/component/service.html'}}
+
+{{include 'site/ghephang/default/component/faq.html'}}
+
+{{include 'site/ghephang/default/component/brand-area.html'}}
+
+{{end}}

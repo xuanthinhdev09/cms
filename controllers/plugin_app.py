@@ -70,6 +70,22 @@ def get_orders():
 
                 divt.append(div_log)
                 div.append(divt)
+
+                # Xử lý dữ liệu history
+                if 'history' in item['data']:
+                    div_history = DIV(_class="col-md-12 mt-3 history-section")
+                    div_history.append(H4('LỊCH SỬ ĐƠN HÀNG', _class="title_box"))
+
+                    for history_item in item['data']['history']:
+                        div_history.append(DIV(
+                            DIV('Thời gian: ', SPAN(history_item['time_stamp'], _class="text-left bold")),
+                            DIV('Sự kiện: ', SPAN(history_item['name'], _class="text-left bold")),
+                            DIV('Chi tiết: ', SPAN(history_item['description'], _class="text-left")),
+                            _class="history-item"
+                        ))
+
+                    divt.append(div_history)
+
             else:
                 div.append(DIV(H4('Không tìm được thông tin mã: %s ' % item['order_code'].encode('utf-8'), _class="title_box"), _class="row mt-3 item"))
         return div

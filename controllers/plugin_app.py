@@ -53,7 +53,7 @@ def get_orders():
 
                 divt.append(d2)
 
-                div_log = DIV(_class='trackingItem mt-3 p-4')
+                """div_log = DIV(_class='trackingItem mt-3 p-4')
 
                 for tracking in item['data']['log_tracking']:
                     ul = UL(_class="timeline pb-3")
@@ -68,7 +68,7 @@ def get_orders():
                     ul.append(LI(SPAN(tracking['time_stamp'], _class='txt-color-red '), DIV(XML(html_content), _class="event")))
                     div_log.append(ul)
 
-                divt.append(div_log)
+                divt.append(div_log)"""
                 div.append(divt)
 
                 # Xử lý dữ liệu history
@@ -77,12 +77,12 @@ def get_orders():
                     div_history.append(H4('LỊCH SỬ ĐƠN HÀNG', _class="title_box"))
 
                     for history_item in item['data']['history']:
-                        div_history.append(DIV(
-                            DIV('Thời gian: ', SPAN(history_item['time_stamp'], _class="text-left bold")),
-                            DIV('Sự kiện: ', SPAN(history_item['name'], _class="text-left bold")),
-                            DIV('Chi tiết: ', SPAN(history_item['description'], _class="text-left")),
-                            _class="history-item"
-                        ))
+                         div_history.append(DIV(
+            DIV('', SPAN(history_item['time_stamp'], _class="text-left",_style="color: #007bff; text-decoration: underline;"),
+                SPAN(': ',history_item['description'], _class="text-left bold", _style="color: #28a745;")),
+            _class="history-item",
+			_style="display: flex; flex-direction: column; align-items:  flex-start;"
+        ))
 
                     divt.append(div_history)
 
